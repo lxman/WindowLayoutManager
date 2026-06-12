@@ -1,7 +1,6 @@
 # Window Layout Manager
 
-[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/michaeljordanlxman.WindowLayoutManager?label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=michaeljordanlxman.WindowLayoutManager)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/michaeljordanlxman.WindowLayoutManager)](https://marketplace.visualstudio.com/items?itemName=michaeljordanlxman.WindowLayoutManager)
+[![Visual Studio Marketplace](https://img.shields.io/badge/Visual%20Studio%20Marketplace-install-5C2D91)](https://marketplace.visualstudio.com/items?itemName=michaeljordanlxman.WindowLayoutManager)
 
 A Visual Studio 2026 (v18) extension that saves and restores **named, per-solution working-context snapshots** — and lets you switch between them with a double-click.
 
