@@ -1,8 +1,8 @@
 name: Publish to Marketplace
 
 # Publishes on version tags (v1.0.1, v1.1.0, ...) or manually from the Actions tab.
-# Requires the repository secret VSIX_PAT: an Azure DevOps personal access token with
-# Organization = "All accessible organizations" and scope Marketplace -> Manage.
+# Requires the repository secret VS_MARKETPLACE_PAT: an Azure DevOps personal access token
+# with Organization = "All accessible organizations" and scope Marketplace -> Manage.
 # Remember to bump the Version in source.extension.vsixmanifest before tagging —
 # the marketplace rejects re-publishing an existing version number.
 
@@ -11,11 +11,15 @@ on:
     tags: [ 'v*' ]
   workflow_dispatch:
 
+env:
+  # Node 20 actions are deprecated (forced to Node 24 from 2026-06-16); opt in now.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   publish:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: microsoft/setup-msbuild@v2
 
@@ -25,7 +29,7 @@ jobs:
       - name: Publish to Visual Studio Marketplace
         shell: pwsh
         env:
-          VSIX_PAT: ${{ secrets.VSIX_PAT }}
+          VSIX_PAT: ${{ secrets.VS_MARKETPLACE_PAT }}
         run: |
           $vsDir = & "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
           $publisher = Join-Path $vsDir 'VSSDK\VisualStudioIntegration\Tools\Bin\VsixPublisher.exe'

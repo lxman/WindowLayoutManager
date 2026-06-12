@@ -12,7 +12,7 @@ namespace WindowLayoutManager
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("Window Layout Manager",
         "Save and restore named, per-solution working-context snapshots: open documents, view state, and breakpoints.",
-        "1.0.0")]
+        "1.0.1")]
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(PackageGuids.PackageString)]
     [ProvideToolWindow(typeof(LayoutWindow), Style = VsDockStyle.Tabbed, Window = "DocumentWell")]

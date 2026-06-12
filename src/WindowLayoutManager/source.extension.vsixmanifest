@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="WindowLayoutManager.d45fb364-1b9d-4d1b-83de-e7ff9907f7c5" Version="1.0.0" Language="en-US" Publisher="Michael Jordan (lxman)"/>
+    <Identity Id="WindowLayoutManager.d45fb364-1b9d-4d1b-83de-e7ff9907f7c5" Version="1.0.1" Language="en-US" Publisher="Michael Jordan (lxman)"/>
     <DisplayName>Window Layout Manager</DisplayName>
     <Description xml:space="preserve">Save and restore named, per-solution working-context snapshots — which documents are open and how they are arranged, each document's scroll/caret/selection, and the breakpoint set — then switch between them with a double-click. Persisted under the solution's .vs folder.</Description>
     <MoreInfo>https://github.com/lxman/WindowLayoutManager</MoreInfo>
