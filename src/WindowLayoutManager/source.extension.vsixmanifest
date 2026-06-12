@@ -8,7 +8,7 @@
     <License>LICENSE.txt</License>
     <Icon>Resources\Icon.png</Icon>
     <PreviewImage>Resources\Icon.png</PreviewImage>
-    <Tags>layout, snapshot, breakpoints, debugging, productivity, solution, editor</Tags>
+    <Tags>layout;snapshot;breakpoints;debugging;productivity;solution;editor</Tags>
   </Metadata>
   <Installation>
     <!-- Version here is the API version (VS 2026 model), not the product version: 17.14 is the
