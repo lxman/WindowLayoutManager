@@ -1,5 +1,8 @@
 # Window Layout Manager
 
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/michaeljordanlxman.WindowLayoutManager?label=Visual%20Studio%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=michaeljordanlxman.WindowLayoutManager)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/michaeljordanlxman.WindowLayoutManager)](https://marketplace.visualstudio.com/items?itemName=michaeljordanlxman.WindowLayoutManager)
+
 A Visual Studio 2026 (v18) extension that saves and restores **named, per-solution working-context snapshots** — and lets you switch between them with a double-click.
 
 Visual Studio keeps exactly one live working context per solution (in the `.suo`): which documents are open, how they're arranged, where the caret/scroll sits, and your breakpoints. It can't hold several *named* contexts and flip between them. This fills that gap — especially for debugging stages you set up repeatedly (e.g. five conditional breakpoints across three files, each scrolled to the right spot).
