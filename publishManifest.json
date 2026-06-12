@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [ "coding" ],
+  "identity": {
+    "internalName": "WindowLayoutManager"
+  },
+  "overview": "overview.md",
+  "priceCategory": "free",
+  "publisher": "michaeljordanlxman",
+  "private": false,
+  "qna": true,
+  "repo": "https://github.com/lxman/WindowLayoutManager"
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="WindowLayoutManager.d45fb364-1b9d-4d1b-83de-e7ff9907f7c5" Version="1.0.0" Language="en-US" Publisher="Michael Jordan (lxman)"/>
+    <DisplayName>Window Layout Manager</DisplayName>
+    <Description xml:space="preserve">Save and restore named, per-solution working-context snapshots — which documents are open and how they are arranged, each document's scroll/caret/selection, and the breakpoint set — then switch between them with a double-click. Persisted under the solution's .vs folder.</Description>
+    <MoreInfo>https://github.com/lxman/WindowLayoutManager</MoreInfo>
+    <License>LICENSE.txt</License>
+    <Icon>Resources\Icon.png</Icon>
+    <PreviewImage>Resources\Icon.png</PreviewImage>
+    <Tags>layout, snapshot, breakpoints, debugging, productivity, solution, editor</Tags>
+  </Metadata>
+  <Installation>
+    <!-- Version here is the API version (VS 2026 model), not the product version: 17.14 is the
+         latest stable API surface (18.0 is experimental and rejected by the Marketplace — see
+         https://aka.ms/vs2026extensioncompat). We compile against the 17.14 SDK packages, so the
+         claim is accurate. Restriction to VS 2026 itself comes from the CoreEditor [18.0,)
+         prerequisite below. -->
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" Version="[4.7.2,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[18.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
+</PackageManifest>

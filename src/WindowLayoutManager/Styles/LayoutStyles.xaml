@@ -1,0 +1,65 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vsui="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
+
+    <!-- All controls adapt to the active VS theme (dark/light/blue) at runtime. -->
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ComboBoxBackgroundBrushKey}}"/>
+        <Setter Property="CaretBrush"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.CommandBarBorderBrushKey}}"/>
+        <Setter Property="Padding" Value="3,2"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.CommandBarGradientBrushKey}}"/>
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.CommandBarBorderBrushKey}}"/>
+        <Setter Property="Padding" Value="10,3"/>
+    </Style>
+
+    <Style TargetType="ListBox">
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ToolWindowBackgroundBrushKey}}"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.CommandBarBorderBrushKey}}"/>
+    </Style>
+
+    <!-- Themed row with a selection highlight (the default WPF ListBoxItem renders a system-blue
+         selection that ignores the VS theme). -->
+    <Style TargetType="ListBoxItem">
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static vsui:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+        <Setter Property="Padding" Value="6,3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="Bd" Background="Transparent"
+                            Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                        <ContentPresenter/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Bd" Property="Background"
+                                    Value="{DynamicResource {x:Static vsui:EnvironmentColors.AccentMediumBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Include href="KnownImageIds.vsct"/>
+
+  <Commands package="guidPackage">
+    <Menus>
+      <!-- Context menu shown by right-clicking a layout in the tool-window list. -->
+      <Menu guid="guidCommandSet" id="LayoutContextMenu" type="Context" priority="0x0100">
+        <Strings>
+          <ButtonText>Layout Actions</ButtonText>
+          <CommandName>WindowLayoutsContextMenu</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+
+    <Groups>
+      <!-- Group under View > Other Windows. The parent must be the submenu (IDM), not a group. -->
+      <Group guid="guidCommandSet" id="MyMenuGroup" priority="0x0100">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CSCD_WINDOWS"/>
+      </Group>
+      <Group guid="guidCommandSet" id="LayoutContextMenuGroup" priority="0x0100">
+        <Parent guid="guidCommandSet" id="LayoutContextMenu"/>
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidCommandSet" id="cmdidOpenLayoutWindow" priority="0x0100" type="Button">
+        <Parent guid="guidCommandSet" id="MyMenuGroup"/>
+        <Icon guid="ImageCatalogGuid" id="LayoutPanel"/>
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Window Layouts</ButtonText>
+          <CommandName>WindowLayoutManager</CommandName>
+          <ToolTipText>Open the Window Layouts tool window</ToolTipText>
+        </Strings>
+      </Button>
+
+      <!-- Context-menu commands for the selected layout. No default keybindings are shipped;
+           the CanonicalName makes each one findable in Tools > Options > Keyboard so users
+           can assign their own. Handlers live on the LayoutWindow pane, so the commands are
+           only routable while the tool window has focus. -->
+      <Button guid="guidCommandSet" id="cmdidApplyLayout" priority="0x0100" type="Button">
+        <Parent guid="guidCommandSet" id="LayoutContextMenuGroup"/>
+        <CommandFlag>DefaultDisabled</CommandFlag>
+        <Strings>
+          <ButtonText>Apply</ButtonText>
+          <CommandName>ApplyLayout</CommandName>
+          <CanonicalName>WindowLayouts.ApplyLayout</CanonicalName>
+          <ToolTipText>Restore the selected layout</ToolTipText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandSet" id="cmdidRenameLayout" priority="0x0200" type="Button">
+        <Parent guid="guidCommandSet" id="LayoutContextMenuGroup"/>
+        <CommandFlag>DefaultDisabled</CommandFlag>
+        <Strings>
+          <ButtonText>Rename…</ButtonText>
+          <CommandName>RenameLayout</CommandName>
+          <CanonicalName>WindowLayouts.RenameLayout</CanonicalName>
+          <ToolTipText>Rename the selected layout</ToolTipText>
+        </Strings>
+      </Button>
+      <Button guid="guidCommandSet" id="cmdidDeleteLayout" priority="0x0300" type="Button">
+        <Parent guid="guidCommandSet" id="LayoutContextMenuGroup"/>
+        <CommandFlag>DefaultDisabled</CommandFlag>
+        <Strings>
+          <ButtonText>Delete</ButtonText>
+          <CommandName>DeleteLayout</CommandName>
+          <CanonicalName>WindowLayouts.DeleteLayout</CanonicalName>
+          <ToolTipText>Delete the selected layout</ToolTipText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <Symbols>
+    <!-- Package GUID -->
+    <GuidSymbol name="guidPackage" value="{8EC62364-3FD8-410B-9216-12CB49877E33}"/>
+
+    <!-- Command set GUID - matches OpenLayoutWindowCommand.CommandSet -->
+    <GuidSymbol name="guidCommandSet" value="{98410079-8D8A-48EC-8799-0326F293B946}">
+      <IDSymbol name="MyMenuGroup"            value="0x1020"/>
+      <IDSymbol name="LayoutContextMenuGroup" value="0x1021"/>
+      <IDSymbol name="LayoutContextMenu"      value="0x2000"/>
+      <IDSymbol name="cmdidOpenLayoutWindow"  value="0x0100"/>
+      <IDSymbol name="cmdidApplyLayout"       value="0x0101"/>
+      <IDSymbol name="cmdidRenameLayout"      value="0x0102"/>
+      <IDSymbol name="cmdidDeleteLayout"      value="0x0103"/>
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
