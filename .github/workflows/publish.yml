@@ -1,0 +1,37 @@
+name: Publish to Marketplace
+
+# Publishes on version tags (v1.0.1, v1.1.0, ...) or manually from the Actions tab.
+# Requires the repository secret VSIX_PAT: an Azure DevOps personal access token with
+# Organization = "All accessible organizations" and scope Marketplace -> Manage.
+# Remember to bump the Version in source.extension.vsixmanifest before tagging —
+# the marketplace rejects re-publishing an existing version number.
+
+on:
+  push:
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: microsoft/setup-msbuild@v2
+
+      - name: Build Release VSIX
+        run: msbuild src\WindowLayoutManager\WindowLayoutManager.csproj /restore /t:Rebuild /p:Configuration=Release
+
+      - name: Publish to Visual Studio Marketplace
+        shell: pwsh
+        env:
+          VSIX_PAT: ${{ secrets.VSIX_PAT }}
+        run: |
+          $vsDir = & "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $publisher = Join-Path $vsDir 'VSSDK\VisualStudioIntegration\Tools\Bin\VsixPublisher.exe'
+          if (-not (Test-Path $publisher)) { throw "VsixPublisher.exe not found under $vsDir" }
+          & $publisher publish `
+            -payload 'src\WindowLayoutManager\bin\Release\net472\WindowLayoutManager.vsix' `
+            -publishManifest 'publishManifest.json' `
+            -personalAccessToken $env:VSIX_PAT
+          if ($LASTEXITCODE -ne 0) { throw "VsixPublisher failed with exit code $LASTEXITCODE" }

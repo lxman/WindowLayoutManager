@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: microsoft/setup-msbuild@v2
+
+      - name: Build Release VSIX
+        run: msbuild src\WindowLayoutManager\WindowLayoutManager.csproj /restore /t:Rebuild /p:Configuration=Release
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WindowLayoutManager
+          path: src/WindowLayoutManager/bin/Release/net472/WindowLayoutManager.vsix
+          if-no-files-found: error
