@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Must match the extension's TFM: the tests reference the shipped assembly directly. -->
+    <TargetFramework>net472</TargetFramework>
+    <!-- xunit.v3 test projects are self-executing. -->
+    <OutputType>Exe</OutputType>
+    <LangVersion>9.0</LangVersion>
+    <RootNamespace>WindowLayoutManager.Tests</RootNamespace>
+    <AssemblyName>WindowLayoutManager.Tests</AssemblyName>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <!-- This project is not part of the VSIX; keep the SDK from treating it as deployable. -->
+    <GenerateVsixContainer>false</GenerateVsixContainer>
+    <DeployExtension>false</DeployExtension>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" Version="3.2.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
+    <!-- The extension references Newtonsoft.Json compile-only (VS supplies it at runtime).
+         Outside VS there is no host to supply it, so the tests must bring their own copy. -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\WindowLayoutManager\WindowLayoutManager.csproj" />
+  </ItemGroup>
+
+</Project>

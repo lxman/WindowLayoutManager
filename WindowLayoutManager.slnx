@@ -2,4 +2,5 @@
   <Project Path="src/WindowLayoutManager/WindowLayoutManager.csproj">
     <Deploy />
   </Project>
+  <Project Path="tests/WindowLayoutManager.Tests/WindowLayoutManager.Tests.csproj" />
 </Solution>

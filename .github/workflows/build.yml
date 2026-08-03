@@ -21,6 +21,13 @@ jobs:
       - name: Build Release VSIX
         run: msbuild src\WindowLayoutManager\WindowLayoutManager.csproj /restore /t:Rebuild /p:Configuration=Release
 
+      - name: Build tests
+        run: msbuild tests\WindowLayoutManager.Tests\WindowLayoutManager.Tests.csproj /restore /t:Build /p:Configuration=Release
+
+      # xunit.v3 test projects are self-executing and exit non-zero on failure.
+      - name: Run tests
+        run: tests\WindowLayoutManager.Tests\bin\Release\net472\WindowLayoutManager.Tests.exe
+
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
         with:
