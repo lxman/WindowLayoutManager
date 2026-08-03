@@ -17,6 +17,15 @@
     <RootNamespace>WindowLayoutManager</RootNamespace>
     <AssemblyName>WindowLayoutManager</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <RepositoryUrl>https://github.com/lxman/WindowLayoutManager</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!-- Do not set AssemblyVersion/FileVersion here. GenerateAssemblyInfo is false, so these
+         properties never reach the assembly (Properties/AssemblyInfo.cs owns the attributes),
+         but the WPF markup compiler does stamp AssemblyVersion into every generated pack URI
+         ("/WindowLayoutManager;V1.0.2;component/..."). The mismatch makes LoadComponent throw
+         FileNotFoundException when the tool window is opened. Version the VSIX in
+         source.extension.vsixmanifest instead. -->
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
@@ -37,18 +46,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MessagePack" Version="3.1.8" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.14.40264" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.14.40264" />
     <PackageReference Include="Microsoft.VisualStudio.Imaging" Version="17.14.40264" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.14.15" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="18.7.23" />
     <!-- Editor view-state access (IWpfTextView, IVsEditorAdaptersFactoryService, IComponentModel).
          VS supplies these assemblies at runtime; reference them compile-only so the VSIX does not
          bundle conflicting copies. -->
     <PackageReference Include="Microsoft.VisualStudio.ComponentModelHost" Version="17.14.106" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Editor" Version="17.0.491" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Text.UI.Wpf" Version="17.0.491" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Editor" Version="17.14.249" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Text.UI.Wpf" Version="17.14.249" ExcludeAssets="runtime" />
     <!-- Newtonsoft.Json is shipped by Visual Studio; reference compile-only to bind to its copy. -->
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" ExcludeAssets="runtime" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.5.40034">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
