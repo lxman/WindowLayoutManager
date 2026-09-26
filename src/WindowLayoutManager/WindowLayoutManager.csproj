@@ -23,7 +23,7 @@
     <!-- Do not set AssemblyVersion/FileVersion here. GenerateAssemblyInfo is false, so these
          properties never reach the assembly (Properties/AssemblyInfo.cs owns the attributes),
          but the WPF markup compiler does stamp AssemblyVersion into every generated pack URI
-         ("/WindowLayoutManager;V1.0.2;component/..."). The mismatch makes LoadComponent throw
+         ("/WindowLayoutManager;V1.0.3;component/..."). The mismatch makes LoadComponent throw
          FileNotFoundException when the tool window is opened. Version the VSIX in
          source.extension.vsixmanifest instead. -->
   </PropertyGroup>
@@ -46,7 +46,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MessagePack" Version="3.1.8" />
+    <PackageReference Include="MessagePack" Version="3.1.10" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.14.40264" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.14.40264" />
     <PackageReference Include="Microsoft.VisualStudio.Imaging" Version="17.14.40264" />
