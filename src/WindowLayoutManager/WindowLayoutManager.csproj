@@ -46,11 +46,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MessagePack" Version="3.1.10" />
+    <PackageReference Include="MessagePack" Version="3.1.12" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.14.40264" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.14.40264" />
     <PackageReference Include="Microsoft.VisualStudio.Imaging" Version="17.14.40264" />
-    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="18.7.23" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="18.12.1" />
     <!-- Editor view-state access (IWpfTextView, IVsEditorAdaptersFactoryService, IComponentModel).
          VS supplies these assemblies at runtime; reference them compile-only so the VSIX does not
          bundle conflicting copies. -->
