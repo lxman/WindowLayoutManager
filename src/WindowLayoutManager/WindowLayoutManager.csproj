@@ -47,23 +47,22 @@
 
   <ItemGroup>
     <PackageReference Include="MessagePack" Version="3.1.12" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="17.14.40264" />
-    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="17.14.40264" />
-    <PackageReference Include="Microsoft.VisualStudio.Imaging" Version="17.14.40264" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" Version="18.12.1603" />
+    <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" Version="18.12.1603" />
+    <PackageReference Include="Microsoft.VisualStudio.Imaging" Version="18.12.1583" />
     <PackageReference Include="Microsoft.VisualStudio.Threading" Version="18.12.1" />
     <!-- Editor view-state access (IWpfTextView, IVsEditorAdaptersFactoryService, IComponentModel).
          VS supplies these assemblies at runtime; reference them compile-only so the VSIX does not
-         bundle conflicting copies. -->
-    <PackageReference Include="Microsoft.VisualStudio.ComponentModelHost" Version="17.14.106" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Editor" Version="17.14.249" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VisualStudio.Text.UI.Wpf" Version="17.14.249" ExcludeAssets="runtime" />
+         bundle conflicting copies. SComponentModel/IComponentModel live in Shell.Framework in 18.x. -->
+    <PackageReference Include="Microsoft.VisualStudio.Editor" Version="18.12.81" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.Text.UI.Wpf" Version="18.12.81" ExcludeAssets="runtime" />
     <!-- Newtonsoft.Json is shipped by Visual Studio; reference compile-only to bind to its copy. -->
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.9.820">
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.12.1606">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="EnvDTE" Version="17.14.40260" />
+    <PackageReference Include="EnvDTE" Version="18.12.1603" />
   </ItemGroup>
 
   <ItemGroup>
